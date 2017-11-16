@@ -69,6 +69,3 @@ def get_help_datapacks(filepath, prefix="!"):
 
     return datapacks
 
-
-def add_help_text(parent, filepath, prefix="!"):
- 
