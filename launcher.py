@@ -1,6 +1,6 @@
 import modis
 
-DISCORD_TOKEN = process.env.DISCORD_TOKEN
+DISCORD_TOKEN = "MzgwNzE5NzY2NDcxNDQyNDMz.DO8szQ._WxGbG3IP51dyOrqG26XOzEaqew"
 CLIENT_ID = "380719766471442433"
 
 modis.gui(
