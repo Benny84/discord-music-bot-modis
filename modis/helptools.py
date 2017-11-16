@@ -1,6 +1,3 @@
-import tkinter as tk
-import tkinter.ttk as ttk
-
 from collections import OrderedDict
 import json as _json
 
@@ -74,53 +71,4 @@ def get_help_datapacks(filepath, prefix="!"):
 
 
 def add_help_text(parent, filepath, prefix="!"):
-    """
-    Load help text from a file and adds it to the parent
-
-    Args:
-        parent: A tk or ttk object
-        filepath (str): The file to load help text from
-        prefix (str): The prefix to use for commands
-    """
-
-    help_contents = get_help_data(filepath)
-
-    text = tk.Text(parent, wrap='word', font=("Helvetica", 10))
-    text.grid(row=0, column=0, sticky="W E N S")
-    text.tag_config("heading", font=("Helvetica", 14))
-    text.tag_config("command", font=("Courier", 10))
-    text.tag_config("param", font=("Courier", 10))
-    text.tag_config("description")
-
-    # Vertical Scrollbar
-    scrollbar = ttk.Scrollbar(parent, orient="vertical", command=text.yview)
-    scrollbar.grid(column=1, row=0, sticky="N S")
-    text['yscrollcommand'] = scrollbar.set
-
-    # Add the content
-    for d in help_contents:
-        text.insert('end', d, "heading")
-        text.insert('end', '\n')
-
-        if d == "Commands":
-            for c in help_contents[d]:
-                if "name" not in c:
-                    continue
-
-                command = prefix + c["name"]
-                text.insert('end', command, ("command", "description"))
-                if "params" in c:
-                    for param in c["params"]:
-                        text.insert('end', " [{}]".format(param), ("param", "description"))
-                text.insert('end', ": ")
-                if "description" in c:
-                    text.insert('end', c["description"], "description")
-
-                text.insert('end', '\n')
-
-            text.insert('end', '\n')
-        else:
-            text.insert('end', help_contents[d], "description")
-            text.insert('end', '\n\n')
-
-    text.config(state=tk.DISABLED)
+ 
